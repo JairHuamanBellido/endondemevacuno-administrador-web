@@ -1,0 +1,1 @@
+En esta carpeta va toda la conectividad con el Rest API

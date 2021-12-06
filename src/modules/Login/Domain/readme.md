@@ -1,0 +1,1 @@
+En esta capa van toda la lógica del negocio (Entidades y Servicios)
