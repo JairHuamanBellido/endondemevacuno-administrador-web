@@ -1,19 +1,20 @@
 import { AuthenticationRequest } from "module/Login/Domain/entity/AuthenticationRequest.interface";
 import { useForm } from "react-hook-form";
+import { Navigate } from "react-router";
 import { Spinner } from "shared";
 import useAuthentication from "../../hooks/useAuthentication";
 
-import LoginError from "../Error/ErroLogin";
+import Error from "../Error/ErroLogin";
 import "./index.scss";
 
 export default function LoginForm() {
   const { register, handleSubmit } = useForm<AuthenticationRequest>();
-  const { mutate, isLoading, isError, error } = useAuthentication();
+  const { mutate, isLoading, isError, error, isSuccess } = useAuthentication();
 
   const onSubmit = (data: AuthenticationRequest) => {
     mutate(data);
   };
-
+  if (isSuccess) return <Navigate replace to="/" />;
   return (
     <form
       data-testid="form"
@@ -40,7 +41,7 @@ export default function LoginForm() {
         />
       </div>
 
-      {isError && <LoginError message={error} />}
+      {isError && <Error message={error} />}
 
       {!isLoading && (
         <input data-testid="submit-btn" type="submit" value="Ingresar" />

@@ -1,0 +1,40 @@
+@import "abstracts/colors";
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background-color: rgba(27, 50, 104, 0.12);
+  padding: 1rem 1.5rem;
+  position: relative;
+  & img {
+    margin-top: 2rem;
+  }
+  & .icon {
+    fill: #00d1ff;
+  }
+
+  & nav {
+    width: 100%;
+    margin-top: 2rem;
+    & li {
+      margin: 1.5rem 0;
+    }
+
+    & p {
+      margin-left: 0.5rem;
+      color: inherit;
+    }
+
+    & .active {
+      & .icon {
+        fill: $sidebar-active-icon;
+      }
+      color: #fff;
+    }
+    & .inactive {
+      & .icon {
+        fill: $sidebar-inactive-link;
+      }
+      color: $sidebar-inactive-link;
+    }
+  }
+}

@@ -1,11 +1,11 @@
-import LoginForm from "./components/Form/LoginForm";
-import LoginHeader from "./components/Header/LoginHeader";
+import Form from "./components/Form/LoginForm";
+import Header from "./components/Header/LoginHeader";
 
 export default function LoginPage() {
   return (
     <div className="loginpage-container flex f-column jc-center ai-center">
-      <LoginHeader />
-      <LoginForm />
+      <Header />
+      <Form />
     </div>
   );
 }

@@ -6,7 +6,7 @@ context("Administrator have to authenticate", () => {
     cy.visit("/login");
   });
 
-  it("credentials are correct", () => {
+  it("credentials are correct and show dashboard", () => {
     cy.intercept("POST", ENDPOINT, {
       statusCode: 201,
       delay: 1000,
@@ -30,8 +30,9 @@ context("Administrator have to authenticate", () => {
 
     cy.wait(["@Authentication"]);
 
-    cy.get("[data-testid=submit-btn]").should("exist");
-    cy.get("[data-testid=loading]").should("not.exist");
+    cy.location().should((loc) => {
+      expect(loc.pathname).to.eq("/");
+    });
   });
 
   it("credentials are incorrect", () => {
@@ -143,7 +144,7 @@ context("Administrator have to authenticate", () => {
     cy.get("[data-testid=form]").submit();
 
     cy.get("[data-testid=error]").should("not.exist");
-    
+
     cy.wait("@AuthenticationError");
   });
 });
