@@ -1,4 +1,4 @@
-import { HttpRestApiAuthentication } from "../../Infrastructure/HttpRestApiAuthentication";
+import { HttpRestApiAuthentication } from "module/Login/Infrastructure/HttpRestApiAuthentication";
 import { AuthenticationRequest } from "../entity/AuthenticationRequest.interface";
 
 export class AuthenticationService {

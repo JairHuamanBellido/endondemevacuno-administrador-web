@@ -1,7 +1,8 @@
+import { AuthenticationRequest } from "module/Login/Domain/entity/AuthenticationRequest.interface";
 import { useForm } from "react-hook-form";
-import { Spinner } from "../../../../../shared";
-import { AuthenticationRequest } from "../../../Domain/entity/AuthenticationRequest.interface";
+import { Spinner } from "shared";
 import useAuthentication from "../../hooks/useAuthentication";
+
 import LoginError from "../Error/ErroLogin";
 import "./index.scss";
 

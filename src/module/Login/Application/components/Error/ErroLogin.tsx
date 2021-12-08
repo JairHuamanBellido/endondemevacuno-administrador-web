@@ -1,4 +1,4 @@
-import { HttpError } from "../../../../../core/types/HttpError";
+import { HttpError } from "core/types/HttpError";
 import "./index.scss";
 
 interface IProps {
