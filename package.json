@@ -10,8 +10,12 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "axios": "0.24.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-hook-form": "7.21.0",
+    "react-query": "3.34.0",
+    "react-router-dom": "6.0.2",
     "react-scripts": "4.0.3",
     "sass": "1.44.0",
     "typescript": "^4.1.2",
@@ -22,9 +26,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:coverage": "react-scripts test --coverage",
+    "test:e2e": "start-server-and-test start http://localhost:3000 cypress",
     "eject": "react-scripts eject",
-    "cypress": "npx cypress run",
-    "e2e": "start-server-and-test start http://localhost:3000 cypress"
+    "cypress": "npx cypress run"
   },
   "eslintConfig": {
     "extends": [
@@ -45,6 +49,8 @@
     ]
   },
   "devDependencies": {
+    "@types/react-router-dom": "5.3.2",
+    "cypress": "9.1.1",
     "start-server-and-test": "1.14.0"
   }
 }

@@ -1,0 +1,49 @@
+@import "abstracts/colors";
+
+input {
+  font-family: "Rubik", sans-serif;
+  border: none;
+  &::placeholder {
+    color: $placeholder-color;
+  }
+  font-size: 1rem;
+}
+
+input[type="text"],
+input[type="password"] {
+  background: none;
+  border-bottom: 1px solid #cecece3f;
+  padding-bottom: 8px;
+  color: #fff;
+  &:focus {
+    outline: none;
+    border-bottom: 1px solid #cecece;
+  }
+}
+
+input[type="submit"] {
+  background: $primary-color;
+  padding: 1rem;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  &:active {
+    transform: scale(0.98);
+    -webkit-transform: scale(0.98);
+    -moz-transform: scale(0.98);
+    -ms-transform: scale(0.98);
+    -o-transform: scale(0.98);
+  }
+  &:focus {
+    outline: none;
+  }
+}

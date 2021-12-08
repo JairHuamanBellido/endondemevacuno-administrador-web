@@ -3,5 +3,6 @@
   "baseUrl": "http://localhost:3000",
   "fixturesFolder": false,
   "pluginsFile": false,
-  "supportFile": false
+  "supportFile": false,
+  "projectId": "8y1eha"
 }

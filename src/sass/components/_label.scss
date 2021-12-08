@@ -1,0 +1,7 @@
+@import "abstracts/colors";
+label {
+  font-size: 14px;
+  font-family: "Rubik", sans-serif;
+  color: $labels-color;
+  margin-bottom: 1em;
+}
