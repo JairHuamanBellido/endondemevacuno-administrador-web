@@ -4,5 +4,7 @@
   "fixturesFolder": "cypress/fixtures",
   "pluginsFile": false,
   "supportFile": false,
-  "projectId": "8y1eha"
+  "projectId": "8y1eha",
+  "screenshotOnRunFailure": false
+
 }
