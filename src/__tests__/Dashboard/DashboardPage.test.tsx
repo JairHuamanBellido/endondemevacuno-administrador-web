@@ -12,7 +12,6 @@ describe("Render Dashboard Page", () => {
     );
   });
 
-  
   it("contain a sidebar", () => {
     expect(screen.getByTestId("sidebar")).toBeInTheDocument();
   });

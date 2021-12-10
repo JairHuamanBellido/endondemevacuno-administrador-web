@@ -3,9 +3,9 @@ import Sidebar from "./components/Sidebar/Sidebar";
 
 export default function DashboardPage() {
   return (
-    <div className="dashboard-layout flex f-row">
+    <div className="dashboard flex f-row">
       <Sidebar />
-      <div className="dashboard-content">
+      <div className="content">
         <Outlet />
       </div>
     </div>

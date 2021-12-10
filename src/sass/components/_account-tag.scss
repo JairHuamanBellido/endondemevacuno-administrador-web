@@ -1,0 +1,27 @@
+.tag-account-status {
+  width: 100%;
+  position: relative;
+  & .circle {
+    width: 9px;
+    height: 9px;
+    border-radius: 18px;
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    -ms-border-radius: 18px;
+    -o-border-radius: 18px;
+    margin-right: 0.5rem;
+
+    &.active {
+      background: #00ffd1;
+      box-shadow: 0 0 12px 2px rgba(0, 255, 209, 0.5);
+    }
+    &.inactive {
+      background: #ff1a59;
+    }
+  }
+
+  & p {
+    color: #fff;
+    font-size: 0.8rem;
+  }
+}

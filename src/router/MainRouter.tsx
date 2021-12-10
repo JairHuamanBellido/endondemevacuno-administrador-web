@@ -1,6 +1,6 @@
 import RouterGuard from "core/guard/RouteGuard";
 import DashboardPage from "module/Dashboard/Application/DashboardPage";
-import UserPage from "module/Dashboard/Application/pages/UsersPage";
+import ManagersPage from "module/Dashboard/Application/pages/ManangersPage";
 import { Routes, Route } from "react-router-dom";
 import LoginPage from "../module/Login/Application/LoginPage";
 
@@ -14,7 +14,7 @@ export default function MainRouter() {
           <RouterGuard redirect="/login" component={<DashboardPage />} />
         }
       >
-        <Route index element={<UserPage />} />
+        <Route index element={<ManagersPage />} />
       </Route>
     </Routes>
   );

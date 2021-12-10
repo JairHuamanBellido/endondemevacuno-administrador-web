@@ -1,6 +1,6 @@
 export default function Spinner() {
   return (
-    <div className="spinner">
+    <div data-testid="spinner" className="spinner">
       <div></div>
     </div>
   );

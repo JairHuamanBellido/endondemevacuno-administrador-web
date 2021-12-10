@@ -6,7 +6,7 @@ describe("Authentication Service", () => {
     id: 1,
   };
 
-  it("r", async () => {
+  it("should return authentication response", async () => {
     jest
       .spyOn(AuthenticationService, "execute")
       .mockReturnValue(Promise.resolve(expectResponse));

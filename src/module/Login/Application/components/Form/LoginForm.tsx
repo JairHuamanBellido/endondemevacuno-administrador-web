@@ -53,7 +53,7 @@ export default function LoginForm() {
           data-testid="loading"
         >
           <Spinner />
-          <p className="font-rubik">Validando credenciales... </p>
+          <p>Validando credenciales... </p>
         </div>
       )}
     </form>

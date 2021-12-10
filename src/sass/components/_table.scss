@@ -1,0 +1,25 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+  & tr td,
+  & tr th {
+    padding: 0.8rem 0;
+    text-align: left;
+  }
+  & tbody tr:hover {
+    background: rgba(255,255,255,0.02);
+  }
+  & tr td,
+  & tr td a {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+  & thead tr th {
+    color: #CCD9FF;
+    font-weight: 500;
+    font-size: 12px;
+    opacity: 0.7;
+  }
+}

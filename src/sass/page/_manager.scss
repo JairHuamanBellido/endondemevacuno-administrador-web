@@ -1,0 +1,34 @@
+@import "abstracts/colors";
+
+.empty-managers-container {
+  width: 100%;
+  margin-top: 3rem;
+  & p {
+    color: #fff;
+  }
+}
+.manager-options {
+  width: 100%;
+  margin-top: 1rem;
+  & a,
+  & button {
+    padding: 0.5rem;
+    border: none;
+    color: #fff !important ;
+  }
+  & a {
+    background-color:#2B4AEE;
+    font-size: 14px;
+  }
+
+  & button {
+    background: rgba(255, 255, 255, 0.1);
+    margin-left: 0.75rem;
+    & .icon {
+      fill: #fff;
+    }
+    & span {
+      margin-left: 0.5rem;
+    }
+  }
+}

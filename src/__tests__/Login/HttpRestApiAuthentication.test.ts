@@ -1,6 +1,5 @@
 import { HttpRestApiAuthentication } from "../../module/Login/Infrastructure/HttpRestApiAuthentication";
 
-// jest.mock("./HttpRestApiAuthentication");
 
 describe("Authentication api rest", () => {
   const expectResponse = {
