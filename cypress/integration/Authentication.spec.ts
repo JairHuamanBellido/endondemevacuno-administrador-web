@@ -3,14 +3,9 @@
 context("Administrator have to authenticate", () => {
   const ENDPOINT = "http://fake-endpoint:3001/auth";
   beforeEach(() => {
-    cy.visit("/login");
-  });
+    cy.clearLocalStorage();
 
-  it("credentials are correct and show dashboard", () => {
-    cy.intercept("POST", ENDPOINT, {
-      statusCode: 201,
-      delay: 1000,
-    }).as("Authentication");
+    cy.visit("/login");
 
     cy.get("[data-testid=submit-btn]").should("exist");
     cy.get("[data-testid=loading]").should("not.exist");
@@ -23,11 +18,18 @@ context("Administrator have to authenticate", () => {
       .type("123456")
       .should("have.value", "123456");
 
+  });
+
+  it("credentials are correct and show dashboard", () => {
+    cy.intercept("POST", ENDPOINT, {
+      statusCode: 201,
+      delay: 500,
+    }).as("Authentication");
+
     cy.get("[data-testid=form]").submit();
 
     cy.get("[data-testid=submit-btn]").should("not.exist");
     cy.get("[data-testid=loading]").should("exist");
-
     cy.wait(["@Authentication"]);
 
     cy.location().should((loc) => {
@@ -42,19 +44,8 @@ context("Administrator have to authenticate", () => {
       headers: {
         "Content-Type": "application/json",
       },
-      delay: 1000,
+      delay: 500,
     }).as("AuthenticationError");
-
-    cy.get("[data-testid=submit-btn]").should("exist");
-    cy.get("[data-testid=loading]").should("not.exist");
-
-    cy.get("[data-testid=username]")
-      .type("user01")
-      .should("have.value", "user01");
-
-    cy.get("[data-testid=password]")
-      .type("123456")
-      .should("have.value", "123456");
 
     cy.get("[data-testid=form]").submit();
 
@@ -78,20 +69,8 @@ context("Administrator have to authenticate", () => {
       headers: {
         "Content-Type": "application/json",
       },
-      delay: 1000,
+      delay: 500,
     }).as("AuthenticationError");
-
-    cy.get("[data-testid=submit-btn]").should("exist");
-
-    cy.get("[data-testid=loading]").should("not.exist");
-
-    cy.get("[data-testid=username]")
-      .type("user01")
-      .should("have.value", "user01");
-
-    cy.get("[data-testid=password]")
-      .type("123456")
-      .should("have.value", "123456");
 
     cy.get("[data-testid=form]").submit();
 
@@ -115,19 +94,8 @@ context("Administrator have to authenticate", () => {
       headers: {
         "Content-Type": "application/json",
       },
-      delay: 1000,
+      delay: 500,
     }).as("AuthenticationError");
-
-    cy.get("[data-testid=submit-btn]").should("exist");
-    cy.get("[data-testid=loading]").should("not.exist");
-
-    cy.get("[data-testid=username]")
-      .type("user01")
-      .should("have.value", "user01");
-
-    cy.get("[data-testid=password]")
-      .type("123456")
-      .should("have.value", "123456");
 
     cy.get("[data-testid=form]").submit();
 
