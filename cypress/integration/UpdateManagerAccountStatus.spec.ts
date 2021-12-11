@@ -3,13 +3,22 @@
 context("Administrator have to", () => {
   const ENDPOINT = "http://fake-endpoint:3001/";
 
-  beforeEach(() => {
+  before(() => {
     cy.clearLocalStorage();
 
     cy.intercept("POST", `${ENDPOINT}/auth`, {
       statusCode: 201,
       delay: 1000,
     }).as("Authentication");
+
+    cy.intercept("GET", `${ENDPOINT}/managers`, {
+      statusCode: 200,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      delay: 1000,
+      fixture: "manager.json",
+    }).as("GetManagers");
 
     cy.visit("/login");
     cy.get("[data-testid=submit-btn]").should("exist");
@@ -36,22 +45,18 @@ context("Administrator have to", () => {
 
     window.localStorage.setItem("token", "ANOTHER_TOKEN");
 
-    cy.intercept("GET", `${ENDPOINT}/managers`, {
-      statusCode: 200,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      delay: 1000,
-      fixture: "manager.json",
-    }).as("GetManagers");
-
-    cy.visit("/");
-
     cy.get("[data-testid=spinner]").should("exist");
 
     cy.wait("@GetManagers");
 
     cy.get("table").should("exist");
+  });
+
+  beforeEach(() => {
+    cy.intercept("PUT", `${ENDPOINT}/manager`, {
+      statusCode: 201,
+      delay: 1000,
+    }).as("UpdateManager");
   });
 
   it("Disable account", () => {
@@ -78,10 +83,6 @@ context("Administrator have to", () => {
 
   it("Enable account", () => {
     const MANAGER_ID = 2;
-    cy.intercept("PUT", `${ENDPOINT}/manager`, {
-      statusCode: 201,
-      delay: 1000,
-    }).as("UpdateManager");
 
     cy.get(
       `[data-testid="manager-${MANAGER_ID}"] > :nth-child(5) > [data-testid="toggle"]`

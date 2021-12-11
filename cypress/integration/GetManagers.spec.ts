@@ -3,13 +3,22 @@
 context("Get Managers", () => {
   const ENDPOINT = "http://fake-endpoint:3001/";
 
-  beforeEach(() => {
+  before(() => {
     cy.clearLocalStorage();
 
     cy.intercept("POST", `${ENDPOINT}/auth`, {
       statusCode: 201,
       delay: 1000,
     }).as("Authentication");
+
+    cy.intercept("GET", `${ENDPOINT}/managers`, {
+      statusCode: 200,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      delay: 1000,
+      fixture: "manager.json",
+    }).as("GetManagers");
 
     cy.visit("/login");
     cy.get("[data-testid=submit-btn]").should("exist");
@@ -36,7 +45,8 @@ context("Get Managers", () => {
 
     window.localStorage.setItem("token", "ANOTHER_TOKEN");
   });
-  it("Get Managers and return at least 1", () => {
+
+  beforeEach(() => {
     cy.intercept("GET", `${ENDPOINT}/managers`, {
       statusCode: 200,
       headers: {
@@ -45,9 +55,9 @@ context("Get Managers", () => {
       delay: 1000,
       fixture: "manager.json",
     }).as("GetManagers");
+  });
 
-    cy.visit("/");
-
+  it("Get Managers and return at least 1", () => {
     cy.get("[data-testid=spinner]").should("exist");
 
     cy.wait("@GetManagers");
@@ -63,36 +73,20 @@ context("Get Managers", () => {
       },
       delay: 1000,
       fixture: "manager-empty.json",
-    }).as("GetManagers");
+    }).as("GetManagersEmpty");
 
-    cy.visit("/");
+    cy.get("[data-testid=refresh").click();
 
+    cy.get("table").should("not.exist");
     cy.get("[data-testid=spinner]").should("exist");
 
-    cy.wait("@GetManagers");
+    cy.wait("@GetManagersEmpty");
 
     cy.get("table").should("not.exist");
     cy.get("p").contains("No hay responsables");
   });
 
   it("Refresh ang get managers updated", () => {
-    cy.intercept("GET", `${ENDPOINT}/managers`, {
-      statusCode: 200,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      delay: 1000,
-      fixture: "manager.json",
-    }).as("GetManagers");
-
-    cy.visit("/");
-
-    cy.get("[data-testid=spinner]").should("exist");
-
-    cy.wait("@GetManagers");
-
-    cy.get("table").should("exist");
-
     cy.get("[data-testid=refresh").click();
 
     cy.get("table").should("not.exist");

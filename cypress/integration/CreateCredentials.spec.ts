@@ -8,6 +8,7 @@ context("Administrator have to generate credentials", () => {
       statusCode: 201,
       delay: 1000,
     }).as("Authentication");
+
     cy.intercept("GET", `${ENDPOINT}/managers`, {
       statusCode: 200,
       headers: {
@@ -16,6 +17,7 @@ context("Administrator have to generate credentials", () => {
       delay: 1000,
       fixture: "manager.json",
     }).as("GetManagers");
+
     cy.visit("/login");
     cy.get("[data-testid=submit-btn]").should("exist");
     cy.get("[data-testid=loading]").should("not.exist");
@@ -40,8 +42,6 @@ context("Administrator have to generate credentials", () => {
     });
 
     window.localStorage.setItem("token", "ANOTHER_TOKEN");
-
-
   });
   it("Create credentials for manager", () => {
     // expect(true).toBeTruthy();
@@ -79,7 +79,6 @@ context("Administrator have to generate credentials", () => {
     cy.get("[data-testid=form]").submit();
 
     cy.wait("@CreateCredentials");
-
 
     // cy.visit("/");
     // cy.location().should((loc) => {

@@ -27,7 +27,7 @@ export default function ManagerPage() {
       });
     });
   };
-
+  const isNotFecthing = (): boolean => !isLoading && !isFetching;
   return (
     <div>
       <Header
@@ -37,18 +37,17 @@ export default function ManagerPage() {
 
       <ManagerOptions isFetching={isFetching} onRefresh={() => refetch()} />
       {(isLoading || isFetching) && <Spinner />}
-      {!isLoading && !isFetching && (data as Manager[]).length > 0 && (
+      {isNotFecthing() && (data as Manager[]).length > 0 && (
         <Table
           onChangeAccountStatus={changeStatusAccount}
           managers={managers}
         />
       )}
-      {!isLoading && managers.length < 1 && (
+      {isNotFecthing() && managers.length < 1 && (
         <div className="empty-managers-container flex f-row jc-center ai-center">
           <p>No hay responsables de centro de vacunación</p>
         </div>
       )}
-
     </div>
   );
 }
