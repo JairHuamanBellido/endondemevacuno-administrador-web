@@ -9,6 +9,7 @@ export default function ToggleButton(props: IProps) {
 
   return (
     <div
+      data-testid="toggle"
       onClick={onChange}
       className={`toggle-container ${isActive ? "active" : "inactive"}`}
     >

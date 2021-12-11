@@ -1,15 +1,10 @@
 import { HttpRestApi } from "core/api/HttpRestApi";
-import { AuthenticationRequest } from "../Domain/entity/AuthenticationRequest.interface";
-import { HttpRestApiAuthenticationResponse } from "./model/HttpApiRestAuthenticationResponse.model";
+import { AuthenticationRequest as Payload } from "../Domain/entity/AuthenticationRequest.interface";
+import { HttpRestApiAuthenticationResponse as Response } from "./model/HttpApiRestAuthenticationResponse.model";
 
 export class HttpRestApiAuthentication {
-  public static async login(
-    payload: AuthenticationRequest
-  ): Promise<HttpRestApiAuthenticationResponse> {
-    const { data } = await HttpRestApi.post<HttpRestApiAuthenticationResponse>(
-      "/auth",
-      payload
-    );
+  public static async login(payload: Payload): Promise<Response> {
+    const { data } = await HttpRestApi.post<Response>("/auth", payload);
 
     return data;
   }

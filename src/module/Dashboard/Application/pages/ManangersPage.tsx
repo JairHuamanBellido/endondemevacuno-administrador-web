@@ -14,10 +14,10 @@ export default function ManagerPage() {
       setManagers(data);
     }
   }, [data]);
-  const changeStatusAccount = (manager: Manager) => {
+  const changeStatusAccount = (managerTarget: Manager) => {
     setManagers((currManagers) => {
       return currManagers.map((m) => {
-        if (m.id === manager.id) {
+        if (m.id === managerTarget.id) {
           return {
             ...m,
             isEnabled: !m.isEnabled,
@@ -27,6 +27,7 @@ export default function ManagerPage() {
       });
     });
   };
+
   return (
     <div>
       <Header
@@ -47,6 +48,7 @@ export default function ManagerPage() {
           <p>No hay responsables de centro de vacunación</p>
         </div>
       )}
+
     </div>
   );
 }
