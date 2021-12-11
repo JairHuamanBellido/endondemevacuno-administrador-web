@@ -10,7 +10,8 @@ input {
 }
 
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="email"] {
   background: none;
   border-bottom: 1px solid #cecece3f;
   padding-bottom: 8px;

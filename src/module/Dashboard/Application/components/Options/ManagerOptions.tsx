@@ -10,7 +10,7 @@ export default function ManagerOptions(props: IProps) {
   const { onRefresh, isFetching } = props;
   return (
     <div className="manager-options flex f-row jc-end ai-center">
-      <Link className="border-radius-4" to={"/"}>
+      <Link data-testid="nav-create-credentials" className="border-radius-4" to={"/generate-credentials"}>
         Generar credenciales
       </Link>
       <button
