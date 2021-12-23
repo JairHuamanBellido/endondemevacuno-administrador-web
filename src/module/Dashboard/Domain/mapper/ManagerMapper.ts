@@ -9,7 +9,7 @@ export class ManagerMapper {
       id: httpManager.id,
       name: httpManager.name,
       lastname: httpManager.lastname,
-      email: httpManager.email,
+      account: httpManager.account,
       isEnabled: httpManager.isEnabled,
       createdAt: httpManager.createdAt.toString(),
     };

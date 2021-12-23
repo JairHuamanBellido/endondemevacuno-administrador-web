@@ -5,6 +5,8 @@
   "pluginsFile": false,
   "supportFile": false,
   "projectId": "8y1eha",
-  "screenshotOnRunFailure": false
-
+  "screenshotOnRunFailure": false,
+  "env": {
+    "api_server": "http://fake-endpoint:3001/"
+  }
 }

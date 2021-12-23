@@ -5,7 +5,11 @@
     "isEnabled": true,
     "lastname": "Huaman",
     "name": "Jair",
-    "email": "hau@gmail.com"
+    "account": {
+      "id": "1a",
+      "email": "hau@gmail.com",
+      "isAdmin": false
+    }
   },
   {
     "createdAt": "10/20/10",
@@ -13,7 +17,11 @@
     "isEnabled": false,
     "lastname": "Huaman",
     "name": "Jair",
-    "email": "hau@gmail.com"
+    "account": {
+      "id": "2a",
+      "email": "hau@gmail.com",
+      "isAdmin": false
+    }
   },
   {
     "createdAt": "10/20/10",
@@ -21,7 +29,11 @@
     "isEnabled": true,
     "lastname": "Huaman",
     "name": "Jair",
-    "email": "hau@gmail.com"
+    "account": {
+      "id": "3a",
+      "email": "hau@gmail.com",
+      "isAdmin": false
+    }
   },
   {
     "createdAt": "10/20/10",
@@ -29,6 +41,10 @@
     "isEnabled": true,
     "lastname": "Huaman",
     "name": "Jair",
-    "email": "hau@gmail.com"
+    "account": {
+      "id": "4a",
+      "email": "hau@gmail.com",
+      "isAdmin": false
+    }
   }
 ]

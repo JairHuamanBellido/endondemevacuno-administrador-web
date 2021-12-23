@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_REST_ENDPOINT_BASE = "http://localhost:5000";
+const API_REST_ENDPOINT_BASE = process.env.REACT_APP_API;
 const HttpRestApi = axios.create({
   baseURL: API_REST_ENDPOINT_BASE,
 });

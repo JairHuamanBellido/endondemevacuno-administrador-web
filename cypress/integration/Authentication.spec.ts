@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 context("Administrator have to authenticate", () => {
-  const ENDPOINT = "http://fake-endpoint:3001/auth";
+  const ENDPOINT = Cypress.env("api_server");
   beforeEach(() => {
     cy.clearLocalStorage();
 
@@ -17,12 +17,15 @@ context("Administrator have to authenticate", () => {
     cy.get("[data-testid=password]")
       .type("123456")
       .should("have.value", "123456");
-
   });
 
   it("credentials are correct and show dashboard", () => {
-    cy.intercept("POST", ENDPOINT, {
+    cy.intercept("POST", `${ENDPOINT}/authentication/admin`, {
       statusCode: 201,
+      body: {
+        token: "asdasd",
+        id: "alskjdaskld",
+      },
       delay: 500,
     }).as("Authentication");
 
@@ -38,7 +41,7 @@ context("Administrator have to authenticate", () => {
   });
 
   it("credentials are incorrect", () => {
-    cy.intercept("POST", `${ENDPOINT}`, {
+    cy.intercept("POST", `${ENDPOINT}/authentication/admin`, {
       statusCode: 400,
       body: { message: "Credenciales incorrectas" },
       headers: {
@@ -63,7 +66,7 @@ context("Administrator have to authenticate", () => {
   });
 
   it("account is blocked", () => {
-    cy.intercept("POST", `${ENDPOINT}`, {
+    cy.intercept("POST", `${ENDPOINT}/authentication/admin`, {
       statusCode: 403,
       body: { message: "Cuenta bloqueada" },
       headers: {
@@ -88,7 +91,7 @@ context("Administrator have to authenticate", () => {
   });
 
   it("hidde error message after retry", () => {
-    cy.intercept("POST", `${ENDPOINT}`, {
+    cy.intercept("POST", `${ENDPOINT}/authentication/admin`, {
       statusCode: 400,
       body: { message: "Credenciales incorrectas" },
       headers: {

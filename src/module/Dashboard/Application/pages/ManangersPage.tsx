@@ -37,7 +37,7 @@ export default function ManagerPage() {
 
       <ManagerOptions isFetching={isFetching} onRefresh={() => refetch()} />
       {(isLoading || isFetching) && <Spinner />}
-      {isNotFecthing() && (data as Manager[]).length > 0 && (
+      {isNotFecthing() && managers.length > 0 && (
         <Table
           onChangeAccountStatus={changeStatusAccount}
           managers={managers}

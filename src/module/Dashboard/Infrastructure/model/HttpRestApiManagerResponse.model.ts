@@ -1,8 +1,10 @@
+import { Account } from "module/Dashboard/Domain/entity/Account";
+
 export interface HttpRestApiManagerResponse {
-  id: number;
+  id: string;
   name: string;
   lastname: string;
   isEnabled: boolean;
   createdAt: Date;
-  email:string;
+  account: Account;
 }

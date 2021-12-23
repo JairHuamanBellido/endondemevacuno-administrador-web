@@ -1,8 +1,10 @@
+import { Account } from "./Account";
+
 export interface Manager {
-  id: number;
+  id: string;
   name: string;
   lastname: string;
   isEnabled: boolean;
   createdAt: string;
-  email: string;
+  account: Account;
 }

@@ -1,17 +1,17 @@
 /// <reference types="cypress" />
 
 context("Get Managers", () => {
-  const ENDPOINT = "http://fake-endpoint:3001/";
+  const ENDPOINT = Cypress.env("api_server");
 
   before(() => {
     cy.clearLocalStorage();
 
-    cy.intercept("POST", `${ENDPOINT}/auth`, {
+    cy.intercept("POST", `${ENDPOINT}/authentication/admin`, {
       statusCode: 201,
       delay: 1000,
     }).as("Authentication");
 
-    cy.intercept("GET", `${ENDPOINT}/managers`, {
+    cy.intercept("GET", `${ENDPOINT}/responsables`, {
       statusCode: 200,
       headers: {
         "Content-Type": "application/json",
@@ -24,7 +24,7 @@ context("Get Managers", () => {
     cy.get("[data-testid=submit-btn]").should("exist");
     cy.get("[data-testid=loading]").should("not.exist");
 
-    cy.get("[data-testid=username]")
+    cy.get("[data-testid=email]")
       .type("user01")
       .should("have.value", "user01");
 
@@ -47,7 +47,7 @@ context("Get Managers", () => {
   });
 
   beforeEach(() => {
-    cy.intercept("GET", `${ENDPOINT}/managers`, {
+    cy.intercept("GET", `${ENDPOINT}/responsables`, {
       statusCode: 200,
       headers: {
         "Content-Type": "application/json",
@@ -66,7 +66,7 @@ context("Get Managers", () => {
   });
 
   it("Get Managers and return empty", () => {
-    cy.intercept("GET", `${ENDPOINT}/managers`, {
+    cy.intercept("GET", `${ENDPOINT}/responsables`, {
       statusCode: 200,
       headers: {
         "Content-Type": "application/json",

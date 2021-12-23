@@ -5,8 +5,12 @@ describe("Get Managers Service", () => {
   const expectResponse: Manager[] = [
     {
       createdAt: new Date().toString(),
-      email: "em@email.com",
-      id: 1,
+      account: {
+        id: "2",
+        email: "em@email.com",
+        isAdmin: false,
+      },
+      id: "1",
       isEnabled: true,
       lastname: "huaman",
       name: "jair",

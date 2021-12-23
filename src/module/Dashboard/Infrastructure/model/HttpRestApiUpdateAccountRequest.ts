@@ -1,4 +1,4 @@
 export interface HttpRestApiUpdateAccountRequest {
-  id: number;
+  id: string;
   accountStatus: boolean;
 }

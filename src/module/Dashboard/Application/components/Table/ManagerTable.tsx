@@ -54,7 +54,7 @@ export default function ManagerTable(props: IProps) {
               <td>
                 {manager.name} {manager.lastname}
               </td>
-              <td>{manager.email}</td>
+              <td>{manager.account.email}</td>
               <td>
                 <TagAccountStatus isEnable={manager.isEnabled} />
               </td>

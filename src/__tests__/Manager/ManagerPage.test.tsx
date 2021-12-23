@@ -14,35 +14,51 @@ const mockUseGetManagers = useGetManagers as jest.Mock<
 const manager: Manager[] = [
   {
     createdAt: new Date().toDateString(),
-    id: 1,
+    id: "1",
     isEnabled: true,
     lastname: "Huaman",
     name: "Jair",
-    email: "hau@gmail.com",
+    account: {
+      id: "1a",
+      email: "hau@gmail.com",
+      isAdmin: false,
+    },
   },
   {
     createdAt: new Date().toDateString(),
-    id: 2,
+    id: "2",
     isEnabled: false,
     lastname: "Huaman",
     name: "Jair",
-    email: "hau@gmail.com",
+    account: {
+      id: "2a",
+      email: "hau@gmail.com",
+      isAdmin: false,
+    },
   },
   {
     createdAt: new Date().toDateString(),
-    id: 3,
+    id: "3",
     isEnabled: true,
     lastname: "Huaman",
     name: "Jair",
-    email: "hau@gmail.com",
+    account: {
+      id: "3a",
+      email: "hau@gmail.com",
+      isAdmin: false,
+    },
   },
   {
     createdAt: new Date().toDateString(),
-    id: 4,
+    id: "4",
     isEnabled: true,
     lastname: "Huaman",
     name: "Jair",
-    email: "hau@gmail.com",
+    account: {
+      id: "4a",
+      email: "hau@gmail.com",
+      isAdmin: false,
+    },
   },
 ];
 
@@ -73,7 +89,7 @@ describe("Render Manager page", () => {
   it("should display refresh button", () => {
     expect(screen.getByTestId("refresh")).toBeInTheDocument();
   });
-  
+
   it("should display 4 users", () => {
     expect(container.querySelectorAll(".manager-row")).toHaveLength(4);
   });
