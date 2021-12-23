@@ -4,7 +4,10 @@ import { HttpRestApiAuthenticationResponse as Response } from "./model/HttpApiRe
 
 export class HttpRestApiAuthentication {
   public static async login(payload: Payload): Promise<Response> {
-    const { data } = await HttpRestApi.post<Response>("/authentication", payload);
+    const { data } = await HttpRestApi.post<Response>(
+      "/authentication/admin",
+      payload
+    );
 
     return data;
   }
