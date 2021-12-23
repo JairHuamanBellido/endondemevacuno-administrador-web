@@ -27,7 +27,7 @@
     "test": "react-scripts test --watchAll=false",
     "test:watch": "react-scripts test",
     "test:coverage": "react-scripts test --coverage --watchAll=false",
-    "test:e2e": "start-server-and-test start http://localhost:3000 cypress",
+    "test:e2e": "cross-env NODE_ENV=test start-server-and-test start http://localhost:3000 cypress",
     "eject": "react-scripts eject",
     "cypress": "npx cypress run"
   },

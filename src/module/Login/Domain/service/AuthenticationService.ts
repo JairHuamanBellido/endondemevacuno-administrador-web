@@ -3,7 +3,10 @@ import { AuthenticationRequest } from "../entity/AuthenticationRequest.interface
 
 export class AuthenticationService {
   public static async execute(body: AuthenticationRequest) {
-    const httpResponse = await HttpRestApiAuthentication.login(body);
+    const httpResponse = await HttpRestApiAuthentication.login({
+      ...body,
+      isAdmin: true,
+    });
     localStorage.setItem("token", httpResponse.token);
     return httpResponse;
   }

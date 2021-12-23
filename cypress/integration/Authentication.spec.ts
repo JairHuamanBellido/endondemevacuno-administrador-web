@@ -10,9 +10,9 @@ context("Administrator have to authenticate", () => {
     cy.get("[data-testid=submit-btn]").should("exist");
     cy.get("[data-testid=loading]").should("not.exist");
 
-    cy.get("[data-testid=username]")
-      .type("user01")
-      .should("have.value", "user01");
+    cy.get("[data-testid=email]")
+      .type("jair@gmail.com")
+      .should("have.value", "jair@gmail.com");
 
     cy.get("[data-testid=password]")
       .type("123456")

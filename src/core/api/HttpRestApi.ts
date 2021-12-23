@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_REST_ENDPOINT_BASE = "http://fake-endpoint:3001";
+const API_REST_ENDPOINT_BASE = "http://localhost:5000";
 const HttpRestApi = axios.create({
   baseURL: API_REST_ENDPOINT_BASE,
 });

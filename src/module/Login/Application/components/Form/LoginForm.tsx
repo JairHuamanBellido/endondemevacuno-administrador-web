@@ -22,12 +22,12 @@ export default function LoginForm() {
       className="login-form flex f-column ai-center"
     >
       <div className="field flex f-column">
-        <label htmlFor="username">Usuario</label>
+        <label htmlFor="email">Correo electrónico</label>
         <input
-          placeholder="Ingrese su usuario"
+          placeholder="Ingrese su correo electrónico"
           type="text"
-          data-testid="username"
-          {...register("username", { required: true })}
+          data-testid="email"
+          {...register("email", { required: true })}
         />
       </div>
       <div className="field flex f-column">

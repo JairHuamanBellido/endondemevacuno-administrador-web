@@ -1,5 +1,4 @@
 class RouteGuardPolicy {
-    valid = () => localStorage.getItem("token");
-    // valid = () => true;
-  }
-  export default new RouteGuardPolicy();
+  valid = () => localStorage.getItem("token");
+}
+export default new RouteGuardPolicy();
