@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { HttpError as Error } from "core/types/HttpError";
 import CreateCredentialsForm from "module/Dashboard/Application/components/Form/CreateCredentialsForm";
 import useCreateCredentials from "module/Dashboard/Application/hooks/useCreateCredentials";
@@ -8,6 +8,7 @@ import {
   QueryClientProvider,
   UseMutationResult,
 } from "react-query";
+import { Route, Routes } from "react-router-dom";
 
 jest.mock("../../module/Dashboard/Application/hooks/useCreateCredentials");
 
@@ -44,9 +45,38 @@ describe("Render Generate Credentials form", () => {
   });
 
   it("must be contains empty value on each input", () => {
-    expect(container.querySelector("input[name=name]")).toHaveValue("");
-    expect(container.querySelector("input[name=lastname]")).toHaveValue("");
-    expect(container.querySelector("input[name=email]")).toHaveValue("");
-    expect(container.querySelector("input[name=documentId]")).toHaveValue("");
+    expect(screen.getByTestId("dni")).toHaveValue("");
+    expect(screen.getByTestId("lastname")).toHaveValue("");
+    expect(screen.getByTestId("email")).toHaveValue("");
+    expect(screen.getByTestId("email")).toHaveValue("");
+  });
+
+  it("should show a error message", () => {
+    mockUseCreateCredentials.mockImplementation((res) => ({
+      ...res,
+      isError: true,
+      error: { response: { data: { message: "Dni ya existe" } } },
+    }));
+    render(
+      <QueryClientProvider client={queryClient}>
+        <CreateCredentialsForm />
+      </QueryClientProvider>
+    );
+    expect(screen.getByTestId("error")).toBeInTheDocument();
+    expect(screen.queryByTestId("spinner")).not.toBeInTheDocument();
+  });
+
+  it("should show a spinner", () => {
+    mockUseCreateCredentials.mockImplementation((res) => ({
+      ...res,
+      isLoading: true,
+    }));
+    render(
+      <QueryClientProvider client={queryClient}>
+        <CreateCredentialsForm />
+      </QueryClientProvider>
+    );
+    expect(screen.getByTestId("spinner")).toBeInTheDocument();
+    expect(screen.queryByTestId("error")).not.toBeInTheDocument();
   });
 });

@@ -42,7 +42,7 @@ context("Administrator have to generate credentials", () => {
     window.localStorage.setItem("token", "ANOTHER_TOKEN");
   });
   it("Create credentials for manager", () => {
-    cy.intercept("POST", `${ENDPOINT}/manager`, {
+    cy.intercept("POST", `${ENDPOINT}/responsables`, {
       statusCode: 201,
       headers: {
         "Content-Type": "application/json",
@@ -64,7 +64,7 @@ context("Administrator have to generate credentials", () => {
       .type("Huaman Bellido")
       .should("have.value", "Huaman Bellido");
 
-    cy.get("[data-testid=documentId]")
+    cy.get("[data-testid=dni]")
       .type("12345678")
       .should("have.value", "12345678");
 

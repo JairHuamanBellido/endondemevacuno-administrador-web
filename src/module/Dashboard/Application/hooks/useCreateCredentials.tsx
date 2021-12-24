@@ -7,5 +7,5 @@ export default function useCreateCredentials() {
   const mutation = useMutation<void, Error, Payload>((payload) =>
     CreateCredentialService.execute(payload)
   );
-  return mutation;
+  return { ...mutation };
 }

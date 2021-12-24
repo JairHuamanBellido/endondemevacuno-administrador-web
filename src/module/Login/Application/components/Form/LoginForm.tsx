@@ -4,12 +4,13 @@ import { Navigate } from "react-router";
 import { Spinner } from "shared";
 import useAuthentication from "../../hooks/useAuthentication";
 
-import Error from "../Error/ErroLogin";
+import Error from "../../../../../shared/Error/ErrorContainer";
 import "./index.scss";
+import { HttpError } from "core/types/HttpError";
 
 export default function LoginForm() {
   const { register, handleSubmit } = useForm<AuthenticationRequest>();
-  const { mutate, isLoading, isError, error, isSuccess } = useAuthentication();
+  const { mutate, isLoading, isError, isSuccess, error } = useAuthentication();
 
   const onSubmit = (data: AuthenticationRequest) => {
     mutate(data);
@@ -41,7 +42,7 @@ export default function LoginForm() {
         />
       </div>
 
-      {isError && <Error message={error} />}
+      {isError && <Error error={error as HttpError} />}
 
       {!isLoading && (
         <input data-testid="submit-btn" type="submit" value="Ingresar" />

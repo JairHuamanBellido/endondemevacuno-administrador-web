@@ -2,13 +2,13 @@ import { HttpError } from "core/types/HttpError";
 import "./index.scss";
 
 interface IProps {
-  message: HttpError | null;
+  error: HttpError;
 }
-export default function LoginError(props: IProps) {
-  const errorMessage = props.message?.response?.data.message;
+export default function ErrorContainer(props: IProps) {
+  const { message } = props.error.response?.data as HttpError;
   return (
     <div data-testid="error" className="border-radius-4 container-error">
-      <p>{errorMessage}</p>
+      <p>{message}</p>
     </div>
   );
 }

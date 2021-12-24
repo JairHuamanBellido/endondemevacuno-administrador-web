@@ -1,6 +1,6 @@
 export interface HttpRestApiCreateCredentialsRequest {
   name: string;
   lastname: string;
-  documentId: string;
+  dni: string;
   email: string;
 }

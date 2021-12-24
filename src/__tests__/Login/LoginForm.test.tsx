@@ -10,6 +10,7 @@ import {
   UseMutationResult,
 } from "react-query";
 import LoginForm from "../../module/Login/Application/components/Form/LoginForm";
+import { error } from "console";
 
 jest.mock("../../module/Login/Application/hooks/useAuthentication");
 
@@ -76,6 +77,10 @@ describe("Render Form Login component", () => {
     mockUseAuthentication.mockImplementation((args) => ({
       ...args,
       isError: true,
+      error: {
+        ...error,
+        response: { data: { message: "Invalid credentials" } },
+      },
     }));
     render(
       <QueryClientProvider client={queryClient}>
