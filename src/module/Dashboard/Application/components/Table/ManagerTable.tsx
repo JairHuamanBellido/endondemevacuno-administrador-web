@@ -24,7 +24,7 @@ export default function ManagerTable(props: IProps) {
 
   const onConfirm = () => {
     mutate({
-      accountStatus: !managerSelected.isEnabled,
+      isEnabled: !managerSelected.isEnabled,
       id: managerSelected.id,
     });
 

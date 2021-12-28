@@ -51,7 +51,7 @@ context("Administrator have to", () => {
   });
 
   beforeEach(() => {
-    cy.intercept("PUT", `${ENDPOINT}/manager`, {
+    cy.intercept("PUT", `${ENDPOINT}/responsables`, {
       statusCode: 201,
       delay: 1000,
     }).as("UpdateManager");
@@ -59,7 +59,7 @@ context("Administrator have to", () => {
 
   it("Disable account", () => {
     const MANAGER_ID = 1;
-    cy.intercept("PUT", `${ENDPOINT}/manager`, {
+    cy.intercept("PUT", `${ENDPOINT}/responsables`, {
       statusCode: 201,
       delay: 1000,
     }).as("UpdateManager");

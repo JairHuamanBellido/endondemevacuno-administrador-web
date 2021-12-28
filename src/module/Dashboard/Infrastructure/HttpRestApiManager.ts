@@ -18,7 +18,7 @@ export class HttpRestApiManager {
     payload: HttpRestApiUpdateAccountRequest
   ): Promise<HttpDefaultResponse> {
     const { data } = await HttRestApiWithInterceptor.put<HttpDefaultResponse>(
-      "/manager",
+      "/responsables",
       payload
     );
 
