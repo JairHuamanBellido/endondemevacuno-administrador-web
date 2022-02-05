@@ -44,6 +44,9 @@ export default function CreateCredentialsForm() {
           <input
             {...register("dni", { required: true })}
             type="text"
+            pattern="[0-9]*"
+            onKeyPress={(e) => !/[0-9]/.test(e.key) && e.preventDefault()}
+            minLength={8}
             maxLength={8}
             data-testid="dni"
             placeholder="Ingrese su dni"
