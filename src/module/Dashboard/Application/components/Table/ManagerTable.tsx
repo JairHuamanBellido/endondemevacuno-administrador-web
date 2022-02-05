@@ -41,7 +41,7 @@ export default function ManagerTable(props: IProps) {
             <th>Email</th>
             <th>Estado de cuenta</th>
             <th>Fecha de creación</th>
-            <th></th>
+            <th>Activar cuenta</th>
           </tr>
         </thead>
         <tbody>
