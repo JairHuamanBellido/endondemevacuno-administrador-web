@@ -1,23 +1,23 @@
-@import "abstracts/variables";
-@import "abstracts/colors";
+@import "./abstracts/variables";
+@import "./abstracts/colors";
 
-@import "base/typography";
-@import "base/reset";
-@import "base/normalize";
+@import "./base/typography";
+@import "./base/reset";
+@import "./base/normalize";
 
-@import "components/button";
-@import "components/input";
-@import "components/label";
-@import "components/spinner";
-@import "components/sidebar";
-@import "components/header";
-@import "components/table";
-@import "components/modal";
-@import "components/account-tag";
-@import "components/toggle";
+@import "./components/button";
+@import "./components/input";
+@import "./components/label";
+@import "./components/spinner";
+@import "./components/sidebar";
+@import "./components/header";
+@import "./components/table";
+@import "./components/modal";
+@import "./components/account-tag";
+@import "./components/toggle";
 
-@import "layout/dashboard";
+@import "./layout/dashboard";
 
-@import "page/login";
-@import "page/manager";
-@import "page/createCredentials";
+@import "./page/login";
+@import "./page/manager";
+@import "./page/createCredentials";
