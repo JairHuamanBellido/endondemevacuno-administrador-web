@@ -1,0 +1,12 @@
+.toast-container {
+  background: #1fff71;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  & p {
+    color: white;
+    font-size: 14px;
+  }
+}

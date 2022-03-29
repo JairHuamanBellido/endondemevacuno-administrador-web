@@ -22,7 +22,9 @@ input[type="email"] {
   }
 }
 
+button[type="submit"],
 input[type="submit"] {
+  animation: none;
   background: $primary-color;
   padding: 1rem;
   color: #fff;
